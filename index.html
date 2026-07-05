@@ -8,8 +8,10 @@
         #yesBtn { padding: 20px 40px; font-size: 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; transition: 0.3s; }
         #noBtn { padding: 10px 20px; font-size: 16px; background-color: #f44336; color: white; border: none; cursor: pointer; }
         .gifts-container { display: none; margin-top: 30px; }
-        .gift-box { font-size: 60px; cursor: pointer; margin: 20px; display: inline-block; transition: transform 0.2s; text-decoration: none; }
+        .gift-box { font-size: 60px; cursor: pointer; margin: 20px; display: inline-block; transition: transform 0.2s; }
         .gift-box:hover { transform: scale(1.2); }
+        #player-container { margin-top: 30px; }
+        .message { font-size: 24px; color: #d81b60; font-weight: bold; margin-top: 15px; }
     </style>
 </head>
 <body>
@@ -21,9 +23,12 @@
 
     <div id="gift-content" class="gifts-container">
         <h2>I knew you'd say yes 💕</h2>
-        <a class="gift-box" href="https://www.youtube.com/watch?v=r99RZ4ViteM&list=RDr99RZ4ViteM&start_radio=1" target="_blank">🎁</a>
-        <a class="gift-box" href="https://www.youtube.com/watch?v=flwBjaFnk_c&list=RDflwBjaFnk_c&start_radio=1" target="_blank">🎁</a>
-        <a class="gift-box" href="https://www.youtube.com/watch?v=TJecOeoWf3I&list=RDTJecOeoWf3I&start_radio=1" target="_blank">🎁</a>
+        <div class="gift-box" onclick="playSong('r99RZ4ViteM')">🎁</div>
+        <div class="gift-box" onclick="playSong('flwBjaFnk_c')">🎁</div>
+        <div class="gift-box" onclick="playSong('TJecOeoWf3I')">🎁</div>
+        
+        <div id="player-container"></div>
+        <p id="myMessage" class="message" style="display:none;">وعد بحطج بعيوني بس انتي قرري</p>
     </div>
 
     <script>
@@ -36,6 +41,12 @@
         function showGifts() {
             document.getElementById('main-content').style.display = "none";
             document.getElementById('gift-content').style.display = "block";
+        }
+        function playSong(id) {
+            document.getElementById('player-container').innerHTML = 
+            `<iframe width="320" height="200" src="https://www.youtube.com/embed/${id}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+            // إظهار الجملة بعد اختيار الأغنية
+            document.getElementById('myMessage').style.display = "block";
         }
     </script>
 </body>
