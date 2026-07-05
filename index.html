@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Tota's Love Letter</title>
+    <style>
+        body { text-align: center; font-family: sans-serif; background-color: #ffe6ea; padding-top: 100px; }
+        #yesBtn { padding: 20px 40px; font-size: 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; transition: 0.3s; }
+        #noBtn { padding: 10px 20px; font-size: 16px; background-color: #f44336; color: white; border: none; cursor: pointer; }
+        .gift-section { display: none; margin-top: 50px; }
+        .gift-link { display: block; margin: 15px; padding: 20px; background: white; border-radius: 15px; text-decoration: none; color: #333; font-weight: bold; border: 2px solid #ffccd5; }
+    </style>
+</head>
+<body>
+    <div id="main-content">
+        <h1>Tota, Do you love me? ❤️</h1>
+        <button id="yesBtn" onclick="showGifts()">YES</button>
+        <button id="noBtn" onclick="reject()">No</button>
+    </div>
+
+    <div id="gift-content" class="gift-section">
+        <h2>I knew you'd say yes 💕</h2>
+        <a class="gift-link" href="https://www.youtube.com/watch?v=7-qE_91T6Jk">🎁 هدية 1: تامر عاشور - من أول دقيقة</a>
+        <a class="gift-link" href="https://www.youtube.com/watch?v=kU_t3G1t0kM">🎁 هدية 2: راشد الماجد - من عرفتك</a>
+        <a class="gift-link" href="https://www.youtube.com/watch?v=J9HhL61dZ8E">🎁 هدية 3: راشد الماجد - انتي في قلبي</a>
+    </div>
+
+    <script>
+        let count = 0;
+        function reject() {
+            count++;
+            let yesBtn = document.getElementById('yesBtn');
+            let noBtn = document.getElementById('noBtn');
+            yesBtn.style.fontSize = (20 + (count * 20)) + "px";
+            if(count >= 4) { noBtn.style.display = "none"; }
+        }
+        function showGifts() {
+            document.getElementById('main-content').style.display = "none";
+            document.getElementById('gift-content').style.display = "block";
+        }
+    </script>
+</body>
+</html>
